@@ -31,3 +31,26 @@ Copyright 2009–2019 by Codility Limited. All Rights Reserved. Unauthorized cop
 
 
 
+ref: https://codesays.com/2015/solution-to-odd-occurrences-in-array-by-codility/
+    
+XOR truth table
+Input	Output
+A	B
+0	0	    0
+0	1	    1
+1	0	    1
+1	1	    0
+
+1. XOR is commutative, which means
+X ^ Y = Y ^ X.
+2. XOR is assiciative, i.e.,
+X ^ (Y ^ Z) = (X ^ Y) ^ Z.
+3. For the truth values, as in the article,
+X ^ X = 0, 0 ^ X = X.
+
+def solution(A):
+    x = 0
+    for i in A:   #[1,2,3,1,2]
+        x ^= i    # 0 ^ 1 ^ 2 ^ 3 ^ 1 ^ 2 = 0 ^ (1 ^ 1) ^ (2 ^ 2) ^ 3 = 0 ^ 3 =3 
+
+    return x
