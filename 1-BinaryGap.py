@@ -19,22 +19,21 @@ N is an integer within the range [1..2,147,483,647].
 
 
 def solution(N):
-    # write your code in Python 3.6
-    
-    a=[bin(N)[2:]]
-    b=''.join(a)
+        
+    a=[bin(N)[2:]]      #convert to binary number
+    b=''.join(a)        #convert from list to number
 
-    c1=b.split('0')
-    d1=[i for i in c1 if i]
-    c0=b.split('1')
-    d0=[i for i in c0 if i]
+    c1=b.split('0')     #split by 0
+    d1=[i for i in c1 if i]     #remmove empty items
+    c0=b.split('1')     #split by 1
+    d0=[i for i in c0 if i]     #remmove empty items
 
-    if len(d1)==1:
+    if len(d1)==1:      #for 1111 or 1100
         return 0
-    elif len(d1)>len(d0):
+    elif len(d1)>len(d0):       #for 11001
         e=max([len(i) for i in d0])
         return e
-    elif len(d1)==len(d0):
+    elif len(d1)==len(d0):      #for 10010
         d0=d0[:-1]
         e=max([len(i) for i in d0])
         return e
